@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard_CreateGrid", "Dashboard_CreateGrid\Dashboard_CreateGrid.csproj", "{EC515A55-DE3D-4BEC-BB41-27B2A1E10EBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC515A55-DE3D-4BEC-BB41-27B2A1E10EBD}.Debug|x86.ActiveCfg = Debug|x86
+		{EC515A55-DE3D-4BEC-BB41-27B2A1E10EBD}.Debug|x86.Build.0 = Debug|x86
+		{EC515A55-DE3D-4BEC-BB41-27B2A1E10EBD}.Release|x86.ActiveCfg = Release|x86
+		{EC515A55-DE3D-4BEC-BB41-27B2A1E10EBD}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
