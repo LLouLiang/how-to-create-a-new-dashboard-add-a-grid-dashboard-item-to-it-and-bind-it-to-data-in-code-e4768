@@ -8,7 +8,7 @@
 ' </auto-generated>
 '------------------------------------------------------------------------------
 
-'#pragma warning disable 1591
+#Disable Warning 1591
 
 Namespace Dashboard_CreateGrid
 
@@ -44,7 +44,7 @@ Namespace Dashboard_CreateGrid
                 AddHandler Me.Relations.CollectionChanged, schemaChangedHandler1
                 Return
             End If
-            Dim strSchema As String = (DirectCast(info.GetValue("XmlSchema", GetType(String)), String))
+            Dim strSchema As String = (CStr(info.GetValue("XmlSchema", GetType(String))))
             If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
                 Dim ds As New Global.System.Data.DataSet()
                 ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
@@ -108,7 +108,7 @@ Namespace Dashboard_CreateGrid
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Overrides Function Clone() As Global.System.Data.DataSet
-            Dim cln As nwindDataSet = (DirectCast(MyBase.Clone(), nwindDataSet))
+            Dim cln As nwindDataSet = (CType(MyBase.Clone(), nwindDataSet))
             cln.InitVars()
             cln.SchemaSerializationMode = Me.SchemaSerializationMode
             Return cln
@@ -162,7 +162,7 @@ Namespace Dashboard_CreateGrid
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Friend Sub InitVars(ByVal initTable As Boolean)
-            Me.tableSalesPerson = (DirectCast(MyBase.Tables("SalesPerson"), SalesPersonDataTable))
+            Me.tableSalesPerson = (CType(MyBase.Tables("SalesPerson"), SalesPersonDataTable))
             If (initTable = True) Then
                 If (Me.tableSalesPerson IsNot Nothing) Then
                     Me.tableSalesPerson.InitVars()
@@ -211,7 +211,7 @@ Namespace Dashboard_CreateGrid
                     dsSchema.Write(s1)
                     Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                     Do While schemas.MoveNext()
-                        schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                        schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                         s2.SetLength(0)
                         schema.Write(s2)
                         If (s1.Length = s2.Length) Then
@@ -397,7 +397,7 @@ Namespace Dashboard_CreateGrid
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Default Public ReadOnly Property Item(ByVal index As Integer) As SalesPersonRow
                 Get
-                    Return (DirectCast(Me.Rows(index), SalesPersonRow))
+                    Return (CType(Me.Rows(index), SalesPersonRow))
                 End Get
             End Property
 
@@ -420,7 +420,7 @@ Namespace Dashboard_CreateGrid
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function AddSalesPersonRow(ByVal Country As String, ByVal FirstName As String, ByVal LastName As String, ByVal ProductName As String, ByVal CategoryName As String, ByVal OrderDate As Date, ByVal UnitPrice As Decimal, ByVal Quantity As Short, ByVal Discount As Single, ByVal Extended_Price As Decimal, ByVal Sales_Person As String) As SalesPersonRow
-                Dim rowSalesPersonRow As SalesPersonRow = (DirectCast(Me.NewRow(), SalesPersonRow))
+                Dim rowSalesPersonRow As SalesPersonRow = (CType(Me.NewRow(), SalesPersonRow))
                 Dim columnValuesArray() As Object = { Nothing, Country, FirstName, LastName, ProductName, CategoryName, OrderDate, UnitPrice, Quantity, Discount, Extended_Price, Sales_Person}
                 rowSalesPersonRow.ItemArray = columnValuesArray
                 Me.Rows.Add(rowSalesPersonRow)
@@ -434,7 +434,7 @@ Namespace Dashboard_CreateGrid
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Overrides Function Clone() As Global.System.Data.DataTable
-                Dim cln As SalesPersonDataTable = (DirectCast(MyBase.Clone(), SalesPersonDataTable))
+                Dim cln As SalesPersonDataTable = (CType(MyBase.Clone(), SalesPersonDataTable))
                 cln.InitVars()
                 Return cln
             End Function
@@ -501,7 +501,7 @@ Namespace Dashboard_CreateGrid
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function NewSalesPersonRow() As SalesPersonRow
-                Return (DirectCast(Me.NewRow(), SalesPersonRow))
+                Return (CType(Me.NewRow(), SalesPersonRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -517,25 +517,25 @@ Namespace Dashboard_CreateGrid
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanged(e)
-                RaiseEvent SalesPersonRowChanged(Me, New SalesPersonRowChangeEvent((DirectCast(e.Row, SalesPersonRow)), e.Action))
+                RaiseEvent SalesPersonRowChanged(Me, New SalesPersonRowChangeEvent((CType(e.Row, SalesPersonRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanging(e)
-                RaiseEvent SalesPersonRowChanging(Me, New SalesPersonRowChangeEvent((DirectCast(e.Row, SalesPersonRow)), e.Action))
+                RaiseEvent SalesPersonRowChanging(Me, New SalesPersonRowChangeEvent((CType(e.Row, SalesPersonRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleted(e)
-                RaiseEvent SalesPersonRowDeleted(Me, New SalesPersonRowChangeEvent((DirectCast(e.Row, SalesPersonRow)), e.Action))
+                RaiseEvent SalesPersonRowDeleted(Me, New SalesPersonRowChangeEvent((CType(e.Row, SalesPersonRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleting(e)
-                RaiseEvent SalesPersonRowDeleting(Me, New SalesPersonRowChangeEvent((DirectCast(e.Row, SalesPersonRow)), e.Action))
+                RaiseEvent SalesPersonRowDeleting(Me, New SalesPersonRowChangeEvent((CType(e.Row, SalesPersonRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -577,7 +577,7 @@ Namespace Dashboard_CreateGrid
                         dsSchema.Write(s1)
                         Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                         Do While schemas.MoveNext()
-                            schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                            schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                             s2.SetLength(0)
                             schema.Write(s2)
                             If (s1.Length = s2.Length) Then
@@ -616,14 +616,14 @@ Namespace Dashboard_CreateGrid
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
                 MyBase.New(rb)
-                Me.tableSalesPerson = (DirectCast(Me.Table, SalesPersonDataTable))
+                Me.tableSalesPerson = (CType(Me.Table, SalesPersonDataTable))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Property OrderID() As Integer
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableSalesPerson.OrderIDColumn), Integer))
+                        Return (CInt((Me(Me.tableSalesPerson.OrderIDColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'OrderID' in table 'SalesPerson' is DBNull.", e)
                     End Try
@@ -637,7 +637,7 @@ Namespace Dashboard_CreateGrid
             Public Property Country() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableSalesPerson.CountryColumn), String))
+                        Return (CStr(Me(Me.tableSalesPerson.CountryColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Country' in table 'SalesPerson' is DBNull.", e)
                     End Try
@@ -651,7 +651,7 @@ Namespace Dashboard_CreateGrid
             Public Property FirstName() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableSalesPerson.FirstNameColumn), String))
+                        Return (CStr(Me(Me.tableSalesPerson.FirstNameColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'FirstName' in table 'SalesPerson' is DBNull.", e)
                     End Try
@@ -665,7 +665,7 @@ Namespace Dashboard_CreateGrid
             Public Property LastName() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableSalesPerson.LastNameColumn), String))
+                        Return (CStr(Me(Me.tableSalesPerson.LastNameColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'LastName' in table 'SalesPerson' is DBNull.", e)
                     End Try
@@ -679,7 +679,7 @@ Namespace Dashboard_CreateGrid
             Public Property ProductName() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableSalesPerson.ProductNameColumn), String))
+                        Return (CStr(Me(Me.tableSalesPerson.ProductNameColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'ProductName' in table 'SalesPerson' is DBNull.", e)
                     End Try
@@ -693,7 +693,7 @@ Namespace Dashboard_CreateGrid
             Public Property CategoryName() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableSalesPerson.CategoryNameColumn), String))
+                        Return (CStr(Me(Me.tableSalesPerson.CategoryNameColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'CategoryName' in table 'SalesPerson' is DBNull.", e)
                     End Try
@@ -707,7 +707,7 @@ Namespace Dashboard_CreateGrid
             Public Property OrderDate() As Date
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableSalesPerson.OrderDateColumn), Global.System.DateTime))
+                        Return (CDate(Me(Me.tableSalesPerson.OrderDateColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'OrderDate' in table 'SalesPerson' is DBNull.", e)
                     End Try
@@ -721,7 +721,7 @@ Namespace Dashboard_CreateGrid
             Public Property UnitPrice() As Decimal
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableSalesPerson.UnitPriceColumn), Decimal))
+                        Return (CDec(Me(Me.tableSalesPerson.UnitPriceColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'UnitPrice' in table 'SalesPerson' is DBNull.", e)
                     End Try
@@ -735,7 +735,7 @@ Namespace Dashboard_CreateGrid
             Public Property Quantity() As Short
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableSalesPerson.QuantityColumn), Short))
+                        Return (CShort(Math.Truncate(Me(Me.tableSalesPerson.QuantityColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Quantity' in table 'SalesPerson' is DBNull.", e)
                     End Try
@@ -749,7 +749,7 @@ Namespace Dashboard_CreateGrid
             Public Property Discount() As Single
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableSalesPerson.DiscountColumn), Single))
+                        Return (CSng(Me(Me.tableSalesPerson.DiscountColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Discount' in table 'SalesPerson' is DBNull.", e)
                     End Try
@@ -763,7 +763,7 @@ Namespace Dashboard_CreateGrid
             Public Property Extended_Price() As Decimal
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableSalesPerson.Extended_PriceColumn), Decimal))
+                        Return (CDec(Me(Me.tableSalesPerson.Extended_PriceColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Extended Price' in table 'SalesPerson' is DBNull.", e)
                     End Try
@@ -777,7 +777,7 @@ Namespace Dashboard_CreateGrid
             Public Property Sales_Person() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableSalesPerson.Sales_PersonColumn), String))
+                        Return (CStr(Me(Me.tableSalesPerson.Sales_PersonColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Sales Person' in table 'SalesPerson' is DBNull.", e)
                     End Try
@@ -1079,4 +1079,4 @@ Namespace Dashboard_CreateGrid.nwindDataSetTableAdapters
     End Class
 End Namespace
 
-'#pragma warning restore 1591
+#Enable Warning 1591

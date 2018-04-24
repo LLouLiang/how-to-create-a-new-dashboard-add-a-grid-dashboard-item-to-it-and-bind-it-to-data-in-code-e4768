@@ -20,14 +20,13 @@ Namespace Dashboard_CreateGrid
             ' measure. Then, adds these columns to the grid's Columns collection.
             grid.Columns.Add(New GridDimensionColumn(New Dimension("CategoryName")))
             grid.Columns.Add(New GridMeasureColumn(New Measure("Extended Price")))
-            grid.Columns.Add(New GridDeltaColumn(New Measure("Extended Price", SummaryType.Max), _
-                                                 New Measure("Extended Price", SummaryType.Min)))
+            grid.Columns.Add(New GridDeltaColumn(New Measure("Extended Price", SummaryType.Max), New Measure("Extended Price", SummaryType.Min)))
             grid.Columns.Add(New GridSparklineColumn(New Measure("Extended Price")))
             grid.SparklineArgument = New Dimension("OrderDate", DateTimeGroupInterval.MonthYear)
 
             Return grid
         End Function
-        Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
 
             ' Creates a dashboard and sets it as a currently opened dashboard in the dashboard viewer.
             dashboardViewer1.Dashboard = New Dashboard()
